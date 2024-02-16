@@ -22,7 +22,7 @@ const userPrompt = [
   },
   {
     type: "input",
-    name: "outline",
+    name: "stroke",
     message: "Enter color of outline:",
   },
   {
@@ -34,21 +34,21 @@ const userPrompt = [
 
 // function to create logo based on user input
 const createLogo = async (answers) => {
-  const { text, textColor, shape, outline, fill } = answers;
+  const { text, textColor, shape, stroke, fill } = answers;
 
   let shapeObj;
   switch (shape) {
     case "circle":
-      shapeObj = new Circle(98, fill);
+      shapeObj = new Circle(98, fill, stroke);
       break;
     case "triangle":
-      shapeObj = new Triangle(300, fill);
+      shapeObj = new Triangle(300, fill, stroke);
       break;
     case "square":
-      shapeObj = new Square(200, fill);
+      shapeObj = new Square(200, fill, stroke);
       break;
     default:
-      shapeObj = new Circle(300, fill);
+      shapeObj = new Circle(300, fill, stroke);
   }
 
   // Get the SVG content from the shape object
@@ -59,8 +59,8 @@ const createLogo = async (answers) => {
 
   // Calculate text position based on font size
   const fontSize = 75;
-  const textX = 150; // Center of the SVG width
-  const textY = 100 + fontSize / 2; // Center of the SVG height plus half of the font size
+  const textX = 150 - 50; // Center of the SVG width
+  const textY = 90 + fontSize / 2; // Center of the SVG height plus half of the font size
 
   // Add text element to the SVG
   svgContent += `<text x="${textX}" y="${textY}" fill="${textColor}" font-size="${fontSize}" text-anchor="middle">${truncatedText}</text>`;
