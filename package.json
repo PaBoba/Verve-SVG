@@ -20,7 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "fs": "^0.0.1-security",
-    "inquirer": "^9.2.14",
-    "jest": "^29.7.0"
+    "inquirer": "^8.2.6",
+    "jest": "^29.7.0",
+    "node": "^21.6.2"
   }
 }
