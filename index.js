@@ -1,6 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const { Shape, Triangle, Circle, Square } = require("./lib/shapes");
+const { Triangle, Circle, Square } = require("./lib/shapes");
 
 // prompt user for input to create logo
 const userPrompt = [
@@ -33,7 +33,7 @@ const userPrompt = [
 ];
 
 // function to create logo based on user input
-const createLogo = async (answers) => {
+const createLogo = (answers) => {
   const { text, textColor, shape, stroke, fill } = answers;
 
   let shapeObj;
